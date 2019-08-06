@@ -1,0 +1,86 @@
+
+<h2 class="text-center my-4">Angular Directives</h2>
+  
+<div class="container-fluid bg-warning text-center">
+  <div class="row py-5">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <h3>NgIf, NgFor, NgSwitch</h3><br>
+        <select class="form-control" #make (change)="choice(make.value)">
+          <option></option>
+          <option value="1">NgIf Admin</option>
+          <option value='2'>NgIf User</option>
+          <option value='3'>NgFor</option>
+          <option value='4'>NgSwitch</option>
+        </select>
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>
+
+<div *ngIf = "user == 1">
+    <div class="container my-4">
+        <h2 class="text-danger text-center my-3">About Admin</h2>
+        <p>Role-based administration allows you to provide the right Envoy access to specified team members. Anyone with an employee record can be assigned an Envoy admin role.</p>
+        <h3 class="text-info">Global Admin role</h3>
+        <ul>
+          <li>Full access to visitor entries and invites at all locations</li>
+          <li>Full access to all settings at all locations</li>
+          <li>Full access to device management at all locations</li>
+          <li>Full access to employee records at all locations</li>
+          <li>Full access to assign any admin roles, at any location</li>
+          <li>Full access to billing details (to change credit card, change plan subscription)</li>
+        </ul>
+      </div>
+</div>
+
+  <div *ngIf = 'user == 2'>
+      <div class="container">
+          <h3 class="text-center text-danger my-3">About User Interface</h3>
+          <p>A user interface, also called a "UI" or simply an "interface," is the means in which a person controls a software application or hardware device. A good user interface provides a "user-friendly" experience, allowing the user to interact with the software or hardware in a natural and intuitive way.</p>
+          <p>Nearly all software programs have a graphical user interface, or GUI. This means the program includes graphical controls, which the user can select using a mouse or keyboard. A typical GUI of a software program includes a menu bar, toolbar, windows, buttons, and other controls. The Macintosh and Windows operating systems have different user interfaces, but they share many of the same elements, such as a desktop, windows, icons, etc. These common elements make it possible for people to use either operating system without having to completely relearn the interface. Similarly, programs like word processors and Web browsers all have rather similar interfaces, providing a consistent user experience across multiple programs.</p>
+        </div>
+  </div>
+
+  <div *ngIf = 'user == 3'>
+      <div class="container my-5">
+          <h3 class="text-center text-danger my-4">NgFor</h3>
+          <div class="row my-5" *ngFor="let card of cards">
+            <div class="col-3"></div>
+            <div class="col-6" >
+                <div class="card flex-row flex-wrap">
+                    <div class="card-header border-0">
+                        <img id="img1" src='{{card.img}}'>
+                    </div>
+                    <div class="card-block px-2">
+                        <h4 class="card-title">{{card.title}}</h4>
+                        <p class="card-text">{{card.description}}</p>
+                    </div>
+                    <div class="w-100"></div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+      </div>
+    </div>
+
+  <div *ngIf = 'user == 4'>
+    <div class="container">
+        <h3 class="text-center text-danger my-4">NgSwitch</h3>
+        <div >
+            <select  (change)="change($event.target.value)">
+              <option></option>
+                <option value="1">First</option>
+                <option value="2">Second</option>
+                <option value="3">Third</option>
+                <option value="4">Fourth</option>
+              </select>
+              <div [ngSwitch] ="switch">
+                  <div *ngSwitchCase = '1'><div *ngFor="let cases of case.Praveen">{{ cases }}</div></div>
+                  <div *ngSwitchCase = '2'><div *ngFor="let cases of case.RL">{{ cases }}</div></div>
+                  <div *ngSwitchCase = '3'><div *ngFor="let cases of case.Naveen">{{ cases }}</div></div>
+                  <div *ngSwitchCase = '4'><div *ngFor="let cases of case.Kumar">{{ cases }}</div></div>
+              </div>
+        </div>
+    </div>
+  </div>
